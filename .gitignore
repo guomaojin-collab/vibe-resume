@@ -1,6 +1,6 @@
 node_modules/
 export/*
-!export/vibe-resume-pdf-demo.pdf
+!export/vibe-resume-demo.pdf
 __pycache__/
 *.pyc
 .DS_Store

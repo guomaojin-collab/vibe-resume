@@ -1,7 +1,7 @@
 {
-  "name": "vibe-resume-pdf",
+  "name": "vibe-resume",
   "version": "0.1.0",
-  "description": "A vibe coding friendly web resume template that exports the screen layout to a one-page PDF.",
+  "description": "A vibe coding friendly web-to-PDF resume template.",
   "type": "module",
   "license": "MIT",
   "keywords": [
@@ -11,6 +11,7 @@
     "html",
     "css",
     "web-to-pdf",
+    "vibe-resume",
     "chromium",
     "vibe-coding",
     "ai-resume"

@@ -1,6 +1,6 @@
-# VibeResumePDF
+# VibeResume
 
-VibeResumePDF, also called Vibe 简历, is a web-first resume template designed for vibe coding with AI. The webpage is the source of truth, and the export script turns the same screen layout into a one-page PDF.
+VibeResume, also called Vibe 简历, is a vibe-coding friendly web-to-PDF resume template. The webpage is the source of truth, and the export script turns the same screen layout into a one-page PDF.
 
 The project is designed for people who want to maintain a resume through natural-language editing instead of repeatedly adjusting Word, LaTeX, or browser print output. Tell an AI coding assistant what role you are targeting, what experience you want to emphasize, and what style you prefer; let it edit `index.html` and `styles.css`; preview the webpage; then run one script to generate a PDF that closely matches the page.
 
@@ -34,6 +34,8 @@ The MiniCode item is also kept as an open-source easter egg and integration exam
 │   │   └── huawei-color.svg
 │   ├── avatar.png
 │   └── minicode-logo.svg
+├── export/
+│   └── vibe-resume-demo.pdf
 ├── skills/
 │   └── vibe-resume-editor/
 │       └── SKILL.md
@@ -80,6 +82,15 @@ Then start a new Codex session and ask:
 ```
 
 If your AI tool does not support Codex skills, you can still paste the content of `skills/vibe-resume-editor/SKILL.md` into the conversation as project instructions.
+
+## Related Projects
+
+VibeResume focuses on the last mile: turning resume content into a polished webpage and a stable one-page PDF. It pairs naturally with these two projects:
+
+- [鼠鼠实习妙妙工具](https://github.com/LiuMengxuan04/shushu-internship-tool): an AI-driven internship project preparation toolkit. It helps turn a target JD into a project path by selecting GitHub projects, auditing codebases, planning a runnable baseline, proposing practical modifications, and generating resume-ready STAR bullets, code explanations, interview Q&A, and presentation/application materials.
+- [鼠鼠实习简历优化器](https://github.com/Sunanzhe2004/shushu-internship-resume-optimizer): a resume material organizer for internship experiences. It takes scattered inputs such as code repositories, project summaries, and business context, audits achievements and evidence, ranks them against a target JD, and produces resume bullets, project summaries, STAR drafts, interview Q&A, risk checks, and application checklists.
+
+A useful workflow is: use `shushu-internship-tool` to plan or build a project, use `shushu-internship-resume-optimizer` to turn raw project evidence into resume-ready content, then use VibeResume to maintain the final resume as a web page and export it to PDF.
 
 ## Icons
 
@@ -140,7 +151,7 @@ or:
 Default output:
 
 ```text
-export/vibe-resume-pdf-demo.pdf
+export/vibe-resume-demo.pdf
 ```
 
 This demo PDF is intentionally committed to the repository as a preview artifact, so people can inspect the expected export result without running the script first. Other files under `export/` remain ignored by default.
@@ -178,7 +189,7 @@ This template exports through a script instead. It opens `index.html` with Chrom
 - Decide whether each company/project should use a logo. If yes, place SVG files under `assets/logos/`; if no, keep text-only company names.
 - Replace the MiniCode easter egg with your own open-source project.
 - Use vibe coding with an AI assistant to iterate on wording, layout, and PDF density.
-- Run `npm run export:pdf` and inspect `export/vibe-resume-pdf-demo.pdf`.
+- Run `npm run export:pdf` and inspect `export/vibe-resume-demo.pdf`.
 
 ## License
 

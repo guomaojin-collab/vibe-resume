@@ -9,7 +9,7 @@ const repoRoot = path.resolve(__dirname, "..");
 
 const inputHtml = path.join(repoRoot, "index.html");
 const outputArg = process.argv[2];
-const outputPdf = path.resolve(repoRoot, outputArg || "export/vibe-resume-pdf-demo.pdf");
+const outputPdf = path.resolve(repoRoot, outputArg || "export/vibe-resume-demo.pdf");
 const exportWidth = 1080;
 
 const chromeCandidates = [
