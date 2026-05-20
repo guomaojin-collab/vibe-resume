@@ -4,6 +4,14 @@
   "description": "A vibe coding friendly web-to-PDF resume template.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LiuMengxuan04/vibe-resume.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LiuMengxuan04/vibe-resume/issues"
+  },
+  "homepage": "https://github.com/LiuMengxuan04/vibe-resume#readme",
   "keywords": [
     "resume",
     "cv",
