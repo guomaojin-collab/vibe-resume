@@ -10,7 +10,7 @@ Most resume information in this repository is mock data for template demonstrati
 
 The profile photo at `assets/avatar.png` is AI-generated and does not depict a real person.
 
-The Huawei and Bilibili company names are intentionally kept as easter eggs. They are only used as company-name placeholders in the demo; all internship details below them are mock and do not describe real work experience. Company names and trademarks belong to their respective owners.
+The Huawei and Bilibili company names are intentionally kept as easter eggs. In the demo resume they are marked with `（仅为示例演示）`; all internship details below them are mock and do not describe real work experience. Company names and trademarks belong to their respective owners.
 
 The MiniCode item is also kept as an open-source easter egg and integration example. It points to the real project `https://github.com/LiuMengxuan04/MiniCode`; replace it with your own project if you want a fully fictional demo.
 
@@ -142,6 +142,8 @@ Default output:
 ```text
 export/vibe-resume-pdf-demo.pdf
 ```
+
+This demo PDF is intentionally committed to the repository as a preview artifact, so people can inspect the expected export result without running the script first. Other files under `export/` remain ignored by default.
 
 You can also choose a path:
 

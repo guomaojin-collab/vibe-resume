@@ -25,7 +25,7 @@ For template/demo mode:
 
 - Treat the profile, education, roles, project details, dates, contact data, awards, and skills as mock content.
 - The avatar at `assets/avatar.png` is AI-generated and should be described that way in docs.
-- Huawei and Bilibili company names are retained as easter eggs only; the internship details under them are mock.
+- Huawei and Bilibili company names are retained as easter eggs only; label them with `（仅为示例演示）`, and keep the internship details under them mock.
 - Demo company logos are optional local SVG assets under `assets/logos/`; remove or replace them if they would misrepresent a real resume.
 - MiniCode may remain as a real open-source easter egg: `https://github.com/LiuMengxuan04/MiniCode`.
 
