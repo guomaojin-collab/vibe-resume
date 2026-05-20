@@ -29,6 +29,9 @@ The MiniCode item is also kept as an open-source easter egg and integration exam
 ```text
 .
 ├── assets/
+│   ├── logos/
+│   │   ├── bilibili-color.svg
+│   │   └── huawei-color.svg
 │   ├── avatar.png
 │   └── minicode-logo.svg
 ├── skills/
@@ -80,7 +83,17 @@ If your AI tool does not support Codex skills, you can still paste the content o
 
 ## Icons
 
-This template ships with simple inline icons and a MiniCode logo easter egg. If you want to add company, product, framework, or open-source project vector icons, https://lobehub.com/icons is a convenient place to search for SVG icons.
+This template ships with simple inline icons, local SVG company logos, and a MiniCode logo easter egg.
+
+Company logos are optional. If a company logo is not available or you do not want to handle trademark assets, keep the company name as plain text. The resume should still look complete without a logo.
+
+If you choose to use a vector logo, prefer one of these paths:
+
+- Upload your own SVG to `assets/logos/` and reference it from `index.html`.
+- Provide a direct SVG link to your AI coding agent and ask it to download the file into `assets/logos/`.
+- Ask your agent to search https://lobehub.com/icons for the company or project icon, then use the SVG/PNG/WebP asset if available.
+
+The demo Bilibili and Huawei SVG files were sourced from LobeHub Icons' static SVG package. Company names, logos, and trademarks belong to their respective owners.
 
 ## Preview
 
@@ -160,7 +173,7 @@ This template exports through a script instead. It opens `index.html` with Chrom
 - Replace `assets/avatar.png` with your own photo or illustration.
 - Update education, internships, projects, and skills.
 - Change CSS variables in `styles.css` for width, typography, colors, and spacing.
-- Search SVG icons at https://lobehub.com/icons and place them under `assets/` when needed.
+- Decide whether each company/project should use a logo. If yes, place SVG files under `assets/logos/`; if no, keep text-only company names.
 - Replace the MiniCode easter egg with your own open-source project.
 - Use vibe coding with an AI assistant to iterate on wording, layout, and PDF density.
 - Run `npm run export:pdf` and inspect `export/vibe-resume-pdf-demo.pdf`.

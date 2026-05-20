@@ -16,7 +16,8 @@ Use this skill to help a user maintain a resume in the VibeResumePDF template. T
 - Prefer concise, formal resume wording with strong verbs, concrete scope, and measurable outcomes.
 - Keep the existing semantic HTML structure unless a section truly needs to be added or removed.
 - Keep visual edits scoped to `styles.css`, and preserve the screen-to-PDF export mechanism.
-- Use SVG/vector icons when useful. LobeHub Icons is a good source: `https://lobehub.com/icons`.
+- Treat company/project logos as optional. Use SVG/vector icons when useful, but keep text-only names when no suitable asset is available.
+- LobeHub Icons is a good source for optional SVG assets: `https://lobehub.com/icons`.
 
 ## Demo And Easter Egg Policy
 
@@ -25,6 +26,7 @@ For template/demo mode:
 - Treat the profile, education, roles, project details, dates, contact data, awards, and skills as mock content.
 - The avatar at `assets/avatar.png` is AI-generated and should be described that way in docs.
 - Huawei and Bilibili company names are retained as easter eggs only; the internship details under them are mock.
+- Demo company logos are optional local SVG assets under `assets/logos/`; remove or replace them if they would misrepresent a real resume.
 - MiniCode may remain as a real open-source easter egg: `https://github.com/LiuMengxuan04/MiniCode`.
 
 For personal-resume mode:
@@ -39,9 +41,10 @@ For personal-resume mode:
 2. Identify whether the task is demo/template maintenance or a real personal resume.
 3. Update resume content in `index.html`.
 4. Adjust spacing, width, typography, and density in `styles.css` only when needed.
-5. Keep links, email, phone, and visible labels consistent.
-6. Run the PDF export.
-7. Verify the PDF is one page and contains all major sections.
+5. For logos, ask whether the user wants them. If yes, use a user-provided SVG/link/upload, or search LobeHub Icons when browsing is allowed. Store downloaded assets in `assets/logos/` and reference local files.
+6. Keep links, email, phone, and visible labels consistent.
+7. Run the PDF export.
+8. Verify the PDF is one page and contains all major sections.
 
 ## Export And Validation
 

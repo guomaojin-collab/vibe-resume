@@ -338,34 +338,6 @@ body {
   width: 24px;
 }
 
-.mock-logo {
-  align-items: center;
-  border-radius: 7px;
-  color: #fff;
-  display: inline-flex;
-  flex: 0 0 auto;
-  font-size: 13px;
-  font-weight: 800;
-  height: 24px;
-  justify-content: center;
-  letter-spacing: 0;
-  line-height: 1;
-  width: 24px;
-}
-
-.entry-head .mock-logo {
-  color: #fff;
-  text-align: center;
-}
-
-.pink-logo {
-  background: #fb7299;
-}
-
-.red-logo {
-  background: #c7000b;
-}
-
 .entry-head span {
   color: var(--muted);
   font-weight: 700;
