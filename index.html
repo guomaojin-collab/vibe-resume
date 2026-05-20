@@ -60,10 +60,10 @@
           <img class="profile-photo" src="./assets/avatar.png" alt="AI generated mock ID photo" />
         </div>
         <div class="profile-main">
-          <p class="eyebrow">Frontend Engineering / Web Platform / AI Tools</p>
+          <p class="eyebrow">AI Agent Engineering / Tool Calling / Developer Tools</p>
           <div class="name-row">
             <h1>Alex Chen</h1>
-            <p class="identity-line">Frontend Engineer · Template Demo</p>
+            <p class="identity-line">AI Agent Engineer · Template Demo</p>
           </div>
           <div class="contact-line">
             <a href="tel:13800000000"><svg class="icon"><use href="#icon-phone"></use></svg>13800000000</a>
@@ -97,33 +97,34 @@
         <article class="experience">
           <div class="entry-head">
             <strong class="company-title"><img class="company-logo" src="./assets/logos/bilibili-color.svg" alt="" />哔哩哔哩技术有限公司</strong>
-            <strong>Frontend Infrastructure Intern</strong>
+            <strong>AI Agent Engineering Intern</strong>
             <span>2024.06 - 2024.09</span>
           </div>
-          <h3>Design System & Web-to-PDF Resume Pipeline | Core Contributor</h3>
+          <h3>创作者运营 Agent 工作台 | 核心开发</h3>
           <p class="summary">
-            项目背景：面向招聘、作品集和开源项目主页场景，维护一套可复用的网页简历组件库，并提供稳定的一键 PDF 导出能力，减少手动排版和浏览器打印差异。
+            项目背景：面向创作者服务与内容运营场景，建设可配置的 Agent 工作台，支持知识检索、工单摘要、标签建议和风险提示等内部效率工具。
           </p>
           <ul>
-            <li><strong>重构信息架构：</strong>将教育、经历、项目和技能拆成可维护的语义化 HTML 模块，统一标题、时间线、徽章和信息块的视觉规范。</li>
-            <li><strong>优化网页到 PDF 导出：</strong>使用 Chromium 按 screen layout 渲染页面，动态测量内容高度并生成单页长 PDF，避免浏览器打印模式造成的错位。</li>
-            <li><strong>提升模板可定制性：</strong>通过 CSS 变量集中管理宽度、颜色、字体和间距，使用户可以快速替换主题、头像和模块内容。</li>
-            <li><strong>完善工程体验：</strong>提供一键导出脚本、依赖锁定、忽略规则和 README 使用说明，降低模板二次开发门槛。</li>
+            <li><strong>工具调用编排：</strong>设计 tool schema、参数校验、超时重试与错误归因机制，统一知识库、工单系统、内容标签等工具的调用协议。</li>
+            <li><strong>知识检索链路：</strong>接入向量检索与关键词召回，补充 metadata filter、来源片段与引用信息，降低 Agent 回答不可追溯的问题。</li>
+            <li><strong>评测与观测：</strong>沉淀 golden cases，记录 prompt、tool call、latency、命中来源和人工反馈，为迭代模型与提示词提供可对比样本。</li>
+            <li><strong>安全与接管：</strong>为高风险工具增加权限范围、人工确认和 fallback 话术，避免 Agent 在内容操作场景中直接执行不可逆动作。</li>
           </ul>
         </article>
 
         <article class="experience">
           <div class="entry-head">
             <strong class="company-title"><img class="company-logo" src="./assets/logos/huawei-color.svg" alt="" />华为技术有限公司</strong>
-            <strong>Full-stack Engineering Intern</strong>
+            <strong>Agent Platform Intern</strong>
             <span>2023.07 - 2023.10</span>
           </div>
-          <h3>Developer Portfolio Automation | Core Developer</h3>
-          <p class="summary">项目背景：为开发者团队提供统一的个人主页、项目集和简历导出能力，覆盖 GitHub profile、静态站点和 PDF 投递材料。</p>
+          <h3>企业知识 Agent Runtime | 核心开发</h3>
+          <p class="summary">项目背景：面向内部知识库问答与研发助手场景，参与 Agent runtime 的工具注册、会话管理、权限控制和离线评测流水线建设。</p>
           <ul>
-            <li><strong>构建内容数据流：</strong>设计 Markdown/HTML 混合内容组织方式，支持从结构化简历信息生成网页展示和 PDF 投递版本。</li>
-            <li><strong>改进可访问性：</strong>为链接、图片、按钮和 section 标题补充语义标签，提升屏幕阅读器和搜索引擎可理解性。</li>
-            <li><strong>沉淀发布流程：</strong>整理本地预览、端口转发、PDF 导出和 GitHub Pages 发布步骤，帮助团队快速复制模板。</li>
+            <li><strong>运行时抽象：</strong>实现会话状态、工具注册表、JSON schema 校验和流式响应封装，使业务方能够以配置方式接入自定义工具。</li>
+            <li><strong>权限与审计：</strong>按用户、空间和工具维度设计白名单与操作日志，区分只读查询、草稿生成和写入类动作的审批路径。</li>
+            <li><strong>上下文管理：</strong>支持历史消息裁剪、摘要压缩和关键事实保留，缓解长会话下 token 成本上升与上下文漂移问题。</li>
+            <li><strong>工程验证：</strong>构建 mock provider、fixture 数据和端到端用例，覆盖工具调用成功、参数缺失、权限拒绝和模型拒答等分支。</li>
           </ul>
         </article>
       </section>
@@ -142,13 +143,13 @@
             <span class="project-stat">Open-source Easter Egg</span>
           </h3>
           <p class="summary">
-            模板彩蛋：保留 MiniCode 标识作为开源联动示例，展示如何在简历项目中自然呈现外部开源项目、工具链或社区贡献。
+            模板彩蛋：MiniCode 是一个 terminal-first coding agent 示例，展示会话管理、工具调用、文件编辑、命令执行和多 provider 接入等能力。
           </p>
           <ul>
-            <li><strong>Agent 工作流：</strong>示例描述 coding agent 如何围绕 tool calling、文件编辑、命令执行和上下文管理协助维护简历模板。</li>
-            <li><strong>模板可迁移：</strong>保留项目链接、徽章和项目摘要结构，用户可以替换成自己的开源项目、论文、产品或作品集。</li>
-            <li><strong>工程闭环：</strong>展示从网页预览到 PDF 交付的完整链路，适合用作个人主页、求职材料和开源项目 demo。</li>
-            <li><strong>开源友好：</strong>示例内容全部为 mock，仅 MiniCode 链接作为真实开源项目彩蛋保留。</li>
+            <li><strong>Agent 主循环：</strong>围绕 model → tool → result → model 构建多轮执行流程，抽象命令执行、文件编辑、搜索读取等常用开发工具。</li>
+            <li><strong>上下文系统：</strong>维护会话消息、工具结果和 provider 使用记录，支持长任务下的状态恢复、压缩边界与风险提示。</li>
+            <li><strong>安全控制：</strong>对写文件、运行命令和外部请求增加权限检查与确认流程，降低 coding agent 在本地开发环境中的误操作风险。</li>
+            <li><strong>开源呈现：</strong>保留真实 MiniCode 链接作为彩蛋，其余示例内容均为 mock，用户可替换为自己的 Agent 项目或工具链。</li>
           </ul>
         </article>
       </section>
@@ -156,12 +157,12 @@
       <section class="section skills-section">
         <h2><svg class="section-icon"><use href="#icon-tool"></use></svg>专业技能</h2>
         <ul class="skills-list">
-          <li>熟悉 HTML/CSS/JavaScript/TypeScript，能够构建可维护的静态页面和组件化 UI。</li>
-          <li>熟悉响应式布局、打印样式、长页面 PDF 导出和浏览器渲染差异处理。</li>
-          <li>熟悉 Node.js 脚本、Playwright/Chromium 自动化和本地开发工具链配置。</li>
-          <li>熟悉 Git、GitHub、README 编写、开源项目结构和版本发布流程。</li>
-          <li>熟悉 Agent 编码助手核心机制，了解 tool calling、MCP、Skills、上下文压缩、会话记忆与权限审批等设计。</li>
-          <li>熟悉基础数据结构与工程化问题拆解，能够把设计、内容和自动化交付流程串成闭环。</li>
+          <li>熟悉 TypeScript / Python / Node.js，能够实现 Agent runtime、CLI 工具和服务端接口。</li>
+          <li>熟悉 LLM Agent 核心机制，了解 tool calling、function schema、规划执行、结果回传与错误恢复。</li>
+          <li>熟悉 RAG 基础链路，了解向量检索、关键词召回、metadata filter、引用片段和知识库更新流程。</li>
+          <li>熟悉 Agent 工程化能力，了解 MCP、Skills、上下文压缩、会话记忆、权限审批与操作审计等设计。</li>
+          <li>熟悉评测与可观测性建设，能够整理 golden cases、mock provider、日志字段和端到端测试用例。</li>
+          <li>熟悉 Git、GitHub、README 编写和开源项目结构，能够把 demo、文档、脚本和发布流程整理成闭环。</li>
         </ul>
       </section>
     </main>
