@@ -6,11 +6,13 @@ The project is designed for people who want to maintain a resume through natural
 
 ## Demo Content Notice
 
-All resume information in this repository is mock data for template demonstration. Names, schools, companies, phone numbers, email addresses, awards, internships, and skills are fictional.
+Most resume information in this repository is mock data for template demonstration. Names, schools, phone numbers, email addresses, awards, internship roles, project descriptions, dates, and skills are fictional.
 
 The profile photo at `assets/avatar.png` is AI-generated and does not depict a real person.
 
-The MiniCode item is intentionally kept as an open-source easter egg and integration example. It points to the real project `https://github.com/LiuMengxuan04/MiniCode`; replace it with your own project if you want a fully fictional demo.
+The Huawei and Bilibili company names are intentionally kept as easter eggs. They are only used as company-name placeholders in the demo; all internship details below them are mock and do not describe real work experience. Company names and trademarks belong to their respective owners.
+
+The MiniCode item is also kept as an open-source easter egg and integration example. It points to the real project `https://github.com/LiuMengxuan04/MiniCode`; replace it with your own project if you want a fully fictional demo.
 
 ## Features
 
@@ -29,6 +31,9 @@ The MiniCode item is intentionally kept as an open-source easter egg and integra
 ├── assets/
 │   ├── avatar.png
 │   └── minicode-logo.svg
+├── skills/
+│   └── vibe-resume-editor/
+│       └── SKILL.md
 ├── scripts/
 │   └── export-pdf.mjs
 ├── export-pdf.sh
@@ -53,6 +58,25 @@ Example prompt:
 ```text
 请基于这个模板帮我制作后端开发实习简历。保持一页 PDF，突出分布式系统、开源项目和工程能力，语气正式但不要堆关键词。
 ```
+
+## AI Skill
+
+This repository includes a plug-and-play Codex-style skill at `skills/vibe-resume-editor/SKILL.md`. It tells an AI coding agent how to edit this template, preserve the web-to-PDF export path, keep demo/easter-egg content honest, and validate the generated PDF.
+
+To install it locally for Codex:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R skills/vibe-resume-editor ~/.codex/skills/
+```
+
+Then start a new Codex session and ask:
+
+```text
+使用 vibe-resume-editor skill，把这份 Vibe 简历改成我的真实后端开发实习简历，并导出一页 PDF。
+```
+
+If your AI tool does not support Codex skills, you can still paste the content of `skills/vibe-resume-editor/SKILL.md` into the conversation as project instructions.
 
 ## Icons
 

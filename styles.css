@@ -353,12 +353,17 @@ body {
   width: 24px;
 }
 
-.coral-logo {
-  background: #d97757;
+.entry-head .mock-logo {
+  color: #fff;
+  text-align: center;
 }
 
-.blue-logo {
-  background: #2563eb;
+.pink-logo {
+  background: #fb7299;
+}
+
+.red-logo {
+  background: #c7000b;
 }
 
 .entry-head span {
