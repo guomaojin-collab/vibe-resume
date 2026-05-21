@@ -196,6 +196,10 @@ VibeResume
 
 VibeResume 的导出脚本会打开 `index.html`，强制使用 `screen` 布局，隐藏工具栏，测量 `.page` 元素高度，并按网页实际宽高生成单页 PDF。这样 PDF 更接近你在网页里看到的样子。
 
+## 致谢
+
+VibeResume 的灵感来源之一，是与 [he11x / kexin](https://github.com/he11x) 的聊天交流。感谢这些关于 AI、简历维护和 vibe coding 工作流的讨论带来的启发。
+
 ## 开源协议
 
 [MIT](LICENSE)
@@ -251,6 +255,10 @@ Recommended pipeline:
 ```text
 shushu-internship-tool -> shushu-internship-resume-optimizer -> VibeResume
 ```
+
+### Acknowledgements
+
+One source of inspiration for VibeResume was the conversation with [he11x / kexin](https://github.com/he11x) around AI, resume maintenance, and vibe-coding workflows.
 
 ### License
 
