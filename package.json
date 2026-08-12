@@ -26,12 +26,15 @@
   ],
   "scripts": {
     "preview": "python3 -m http.server 4173",
-    "export:pdf": "node scripts/export-pdf.mjs"
+    "sync:logos": "node scripts/sync-lobe-icons.mjs",
+    "export:pdf": "node scripts/export-pdf.mjs",
+    "export:pdf:dense-two-page": "node scripts/export-pdf.mjs export/vibe-resume-dense-two-page-demo.pdf templates/dense-two-page/index.html"
   },
   "engines": {
     "node": ">=18"
   },
   "dependencies": {
+    "@lobehub/icons": "^5.16.0",
     "playwright-core": "^1.60.0"
   }
 }

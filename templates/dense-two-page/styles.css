@@ -1,0 +1,369 @@
+:root {
+  --page-width: 1122px;
+  --page-height: 1588px;
+  --blue: #1768e5;
+  --navy: #173a86;
+  --ink: #171717;
+  --muted: #5f6672;
+  --line: #2f7df0;
+  --soft-blue: #eef6ff;
+  --soft-pink: #fff1f3;
+  --soft-gray: #f3f4f6;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "EB Garamond Local";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/eb-garamond-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "EB Garamond Local";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../../assets/fonts/eb-garamond-semibold.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "EB Garamond Local";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../assets/fonts/eb-garamond-bold.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: #edf1f6;
+  color: var(--ink);
+  font-family: "EB Garamond Local", "PingFang SC", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 16px;
+}
+
+.toolbar button,
+.toolbar a {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  color: #172033;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 14px;
+  text-decoration: none;
+}
+
+.resume-book {
+  margin: 0 auto 36px;
+  width: var(--page-width);
+}
+
+.resume-page {
+  background: #fff;
+  box-shadow: 0 16px 50px rgba(15, 23, 42, 0.14);
+  height: var(--page-height);
+  margin-bottom: 24px;
+  overflow: hidden;
+  padding: 42px 54px 42px;
+  width: var(--page-width);
+}
+
+.profile-header {
+  margin-bottom: 13px;
+}
+
+.profile-header h1 {
+  font-family: "PingFang SC", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 1;
+  margin: 0 0 8px;
+}
+
+.profile-header p {
+  margin: 3px 0;
+}
+
+.contact-row {
+  font-size: 16px;
+}
+
+.headline,
+.identity-row {
+  font-weight: 800;
+}
+
+.education-row {
+  font-size: 16px;
+}
+
+.resume-section h2 {
+  border-bottom: 2px solid var(--line);
+  color: var(--blue);
+  font-family: "PingFang SC", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.12;
+  margin: 10px 0 7px;
+  padding-bottom: 4px;
+}
+
+.section-lead {
+  color: var(--navy);
+  font-weight: 800;
+  margin: 0 0 14px;
+}
+
+.feature-project h3,
+.project-block h3 {
+  color: var(--navy);
+  font-family: "EB Garamond Local", "PingFang SC", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+
+.feature-project h3 {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 8px;
+}
+
+.feature-project h3 span {
+  color: #ed9d00;
+  font-size: 14px;
+}
+
+ul {
+  margin: 0;
+  padding-left: 21px;
+}
+
+li {
+  margin: 3px 0;
+  padding-left: 1px;
+}
+
+li::marker {
+  color: #111;
+}
+
+.role-card {
+  margin-top: 14px;
+}
+
+.role-heading {
+  align-items: center;
+  background: var(--soft-gray);
+  border-radius: 6px;
+  display: grid;
+  font-family: "EB Garamond Local", "PingFang SC", sans-serif;
+  font-size: 18px;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  gap: 9px;
+  line-height: 1.2;
+  min-height: 44px;
+  padding: 4px 11px;
+}
+
+.role-card-bytedance .role-heading {
+  background: linear-gradient(90deg, #edf3ff 0%, #f2fcfd 100%);
+  border-left: 5px solid #3c8cff;
+}
+
+.role-card-bilibili .role-heading {
+  background: #fff0f5;
+  border-left: 5px solid #fb7299;
+}
+
+.role-card-kuaishou .role-heading {
+  background: #fff1eb;
+  border-left: 5px solid #ff4906;
+}
+
+.role-card-meituan .role-heading {
+  background: #fff8d8;
+  border-left: 5px solid #ffc300;
+}
+
+.role-heading img {
+  height: 28px;
+  object-fit: contain;
+  width: 28px;
+}
+
+.logo-chip {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+
+.logo-chip img {
+  height: 34px;
+  width: 34px;
+}
+
+.role-card-bytedance .logo-chip img {
+  height: 35px;
+  width: 40px;
+}
+
+.role-card-bilibili .logo-chip img {
+  height: 38px;
+  width: 38px;
+}
+
+.role-card-kuaishou .logo-chip img,
+.role-card-meituan .logo-chip img {
+  height: 39px;
+  width: 39px;
+}
+
+.role-heading strong {
+  font-weight: 600;
+}
+
+.role-heading span:last-child {
+  color: #303744;
+  font-weight: 600;
+}
+
+.brand-mark {
+  align-items: center;
+  background: var(--blue);
+  border-radius: 7px;
+  color: #fff;
+  display: flex;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.project-block {
+  margin-top: 9px;
+}
+
+.project-block + .project-block {
+  margin-top: 12px;
+}
+
+.project-block ul {
+  padding-left: 21px;
+}
+
+.page-two-section {
+  margin-top: 0;
+}
+
+.compact-section {
+  margin-top: 15px;
+}
+
+.standalone-project {
+  margin-top: 9px;
+}
+
+.standalone-project h3 a {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.closing-list {
+  padding-left: 21px;
+}
+
+.closing-list li {
+  margin: 5px 0;
+}
+
+.demo-note {
+  border-top: 1px dashed #bdc5d1;
+  color: var(--muted);
+  font-family: "PingFang SC", sans-serif;
+  font-size: 11px;
+  margin: 16px 0 0;
+  padding-top: 7px;
+  text-align: center;
+}
+
+@media (max-width: 1120px) {
+  .resume-book {
+    width: calc(100vw - 24px);
+  }
+
+  .resume-page {
+    height: auto;
+    min-height: 0;
+    padding: 28px 26px;
+    width: 100%;
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: 1122px 1588px;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .toolbar {
+    display: none;
+  }
+
+  .resume-book {
+    margin: 0;
+  }
+
+  .resume-page {
+    break-after: page;
+    box-shadow: none;
+    margin: 0;
+    page-break-after: always;
+  }
+
+  .resume-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}

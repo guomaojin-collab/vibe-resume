@@ -9,14 +9,18 @@
 
 > 像 vibe coding 一样编辑你的简历：告诉 AI 你想怎么改，它直接修改网页简历，再一键导出为 PDF。
 
-VibeResume 是一个 **AI 友好、网页优先、可导出 PDF 的简历模板**。你不需要在 Word、LaTeX 或浏览器打印预览里反复对齐版式；把简历维护成 `HTML + CSS`，让 AI 帮你改内容和排版，然后用脚本把网页看到的布局稳定导出成一页 PDF。
+VibeResume 是一个 **AI 友好、网页优先、可导出 PDF 的简历模板仓库**。你不需要在 Word、LaTeX 或浏览器打印预览里反复对齐版式；把简历维护成 `HTML + CSS`，让 AI 帮你改内容和排版，然后用脚本把网页看到的布局稳定导出为一页或两页 PDF。
 
 [English](#english)
 
-![VibeResume generated resume preview](assets/preview.png)
+<p align="center">
+  <img src="assets/preview.png" alt="VibeResume 标准单页模板预览" width="31%" />
+  <img src="templates/dense-two-page/preview-page-1.png" alt="VibeResume 高密度双页模板第 1 页预览" width="31%" />
+  <img src="templates/dense-two-page/preview-page-2.png" alt="VibeResume 高密度双页模板第 2 页预览" width="31%" />
+</p>
 
 - 示例网页：打开 `index.html`
-- 示例 PDF：[export/vibe-resume-demo.pdf](export/vibe-resume-demo.pdf)
+- 示例 PDF：[标准单页](export/vibe-resume-demo.pdf) · [高密度双页](export/vibe-resume-dense-two-page-demo.pdf)
 - AI 使用说明：[skills/vibe-resume-editor/SKILL.md](skills/vibe-resume-editor/SKILL.md)
 
 ## 为什么做这个项目
@@ -33,12 +37,16 @@ VibeResume 的思路是：**把网页作为简历源文件，把 AI 当作编辑
 
 - **像 vibe coding 一样编辑简历**：直接告诉 AI 目标岗位、修改方向和版式要求，让它修改 `index.html` 与 `styles.css`。
 - **网页即源文件**：简历内容、布局、图标、链接都在静态 HTML/CSS 中维护，天然适合 Git 版本管理。
-- **一键导出 PDF**：使用 Chromium 渲染网页的 `screen` 布局，动态测量 `.page` 高度，导出为单页 PDF。
+- **一键导出 PDF**：使用 Chromium 渲染网页的 `screen` 布局；一页模板动态测量 `.page` 高度，双页模板识别 `.resume-page` 并按页导出。
+- **一页 / 两页模板**：根目录提供标准一页模板，`templates/dense-two-page/` 提供高密度技术简历，可保留一页或扩展为两页。
 - **避免打印错位**：不依赖手动浏览器打印，不触发不可控的纸张边距、分页、缩放和 `@media print` 差异。
 - **AI 配套 Skill**：仓库内置 `vibe-resume-editor`，可以作为 Codex-style skill 即插即用。
 - **开源项目友好**：包含 README、License、示例 PDF、预览截图、导出脚本、依赖锁定和 mock 示例内容。
 
 ## 快速开始
+
+> [!IMPORTANT]
+> 浏览器只负责预览 HTML，不负责生成最终交付 PDF。请勿把浏览器“打印 / 另存为 PDF”的结果作为正式简历；最终 PDF 必须通过本项目官方导出脚本生成。
 
 安装依赖：
 
@@ -70,11 +78,47 @@ npm run export:pdf
 export/vibe-resume-demo.pdf
 ```
 
+导出高密度双页模板：
+
+```bash
+npm run export:pdf:dense-two-page
+```
+
+输出：
+
+```text
+export/vibe-resume-dense-two-page-demo.pdf
+```
+
 也可以指定输出路径：
 
 ```bash
 ./export-pdf.sh export/my-resume.pdf
 ```
+
+通用脚本也可以指定模板 HTML：
+
+```bash
+./export-pdf.sh export/my-two-page-resume.pdf templates/dense-two-page/index.html
+```
+
+## 模板选择
+
+### 标准一页模板
+
+- 文件：`index.html` + `styles.css`
+- 适合：经历较少、强调快速扫描、默认一页投递的简历。
+- 导出：`npm run export:pdf`
+
+### Dense Two-Page 高密度技术模板
+
+- 文件：`templates/dense-two-page/index.html` + `templates/dense-two-page/styles.css`
+- 适合：算法、AI Agent、基础设施、研究与开源经历较多的候选人。
+- 风格：白底、高密度正文、蓝色章节标题、细分隔线、浅色 Logo 标题条和详细技术 bullet。
+- 页数：默认示例为两页；删除第二个 `.resume-page` 后，同一导出器会自动生成一页 PDF。
+- 导出：`npm run export:pdf:dense-two-page`
+
+当用户明确要求两页简历时，配套 Skill 会默认选择这个模板；未指定页数时仍沿用根目录的一页模板。
 
 如果脚本找不到浏览器，可以手动指定 Chrome / Chromium：
 
@@ -130,7 +174,7 @@ cp -R skills/vibe-resume-editor ~/.codex/skills/
 
 - 姓名、学校、电话、邮箱、奖项、实习角色、项目描述、日期和技能均为虚构示例。
 - `assets/avatar.png` 是 AI 生成头像，不是真实人物证件照。
-- 华为和哔哩哔哩公司名作为彩蛋保留，并在简历中标注 `（仅为示例演示）`；其下方实习内容不代表真实工作经历。
+- 高密度双页模板使用字节跳动、快手、美团和哔哩哔哩作为公司栏示例，并明确标注 `Mock 模拟经历`；所有实习内容与指标均为虚构演示。
 - MiniCode 作为真实开源项目彩蛋保留：<https://github.com/LiuMengxuan04/MiniCode>。你可以替换成自己的开源项目、论文、产品或作品集。
 
 ## 关联项目
@@ -150,20 +194,30 @@ shushu-internship-resume-optimizer
   -> 把项目证据、业务背景和经历材料整理成可投递表达
 
 VibeResume
-  -> 让 AI 修改网页简历，并导出稳定的一页 PDF
+  -> 让 AI 修改网页简历，并导出稳定的一页或两页 PDF
 ```
 
 ## 图标与 Logo
 
 公司和项目 Logo 是可选项。没有合适图标时，直接保留纯文本公司名即可，简历仍然应该完整、正式。
 
-如果要使用矢量图，推荐：
+需要公司 Logo 时，Agent 应主动建议用户打开 [Iconfont](https://www.iconfont.cn/) 手动搜索、核对并下载 SVG，再将文件上传给 Agent。Agent 不应代替用户在 Iconfont 上凭关键字猜选，也不应用产品 Logo 冒充公司 Logo。如有公司官方品牌或媒体素材库，也可优先使用。
+
+需要 AI 模型、产品或供应商图标时，先阅读 [LobeHub Icons 官方使用指南](https://lobehub.com/icons/skill.md)。LobeHub 标准流程是：
+
+1. 安装 `@lobehub/icons`。
+2. 查询包导出的 `toc`，核对 PascalCase `id`、品牌色和 `param.hasColor` / `hasBrandColor` 等变体。
+3. 使用 `getLobeIconCDN(id.toLowerCase(), { format: 'svg', type: 'color', cdn: 'unpkg' })` 生成静态 SVG 地址。
+4. 把选定 ID 加入 `scripts/sync-lobe-icons.mjs`，再运行 `npm run sync:logos` 将 SVG 下载到 `assets/logos/`；正式简历只引用本地文件，不热链 CDN。
+
+如果要使用矢量图：
 
 - 自己上传 SVG 到 `assets/logos/` 并在 `index.html` 中引用。
-- 给 AI 一个 SVG 直链，让它下载到 `assets/logos/`。
-- 让 AI 去 <https://lobehub.com/icons> 搜索公司、产品、框架或开源项目图标。
+- 让 Agent 按上述官方 Skill 流程在 <https://lobehub.com/icons> 和 `toc` 中确认公司、产品、框架或开源项目图标。
 
-当前示例中的 Bilibili / Huawei SVG 来自 LobeHub Icons 的静态 SVG 包。公司名、Logo 和商标归各自权利方所有。
+当前双页示例中，字节跳动、快手和美团使用用户从 Iconfont 手动下载后提供的 SVG；哔哩哔哩使用 `@lobehub/icons` 的 `Bilibili.Color`。公司栏背景、左侧强调色与 Logo 主色呼应。公司名、Logo 和商标归各自权利方所有。
+
+双页模板的 Logo 应保持透明直贴，不添加白色底座、白边、额外描边或装饰圆角。不要只机械统一 CSS 宽高：应根据 SVG 自带留白逐枚校准，使实际图形的视觉高度约占 44px 公司栏的 75%–80%。当前显示盒约为 35–39px；窄长图形可适度加宽，但不得拉伸或裁切。
 
 ## 项目结构
 
@@ -172,17 +226,34 @@ VibeResume
 ├── assets/
 │   ├── logos/
 │   │   ├── bilibili-color.svg
-│   │   └── huawei-color.svg
+│   │   ├── bytedance-iconfont.svg
+│   │   ├── huawei-color.svg
+│   │   ├── kuaishou-iconfont.svg
+│   │   └── meituan-iconfont.svg
+│   ├── fonts/
+│   │   ├── eb-garamond-regular.woff2
+│   │   ├── eb-garamond-semibold.woff2
+│   │   └── eb-garamond-bold.woff2
 │   ├── avatar.png
 │   ├── minicode-logo.svg
 │   └── preview.png
 ├── export/
-│   └── vibe-resume-demo.pdf
+│   ├── vibe-resume-demo.pdf
+│   └── vibe-resume-dense-two-page-demo.pdf
 ├── skills/
 │   └── vibe-resume-editor/
 │       └── SKILL.md
 ├── scripts/
-│   └── export-pdf.mjs
+│   ├── export-pdf.mjs
+│   └── sync-lobe-icons.mjs
+├── templates/
+│   └── dense-two-page/
+│       ├── index.html
+│       ├── preview.png
+│       ├── preview-page-1.png
+│       ├── preview-page-2.png
+│       ├── styles.css
+│       └── README.md
 ├── export-pdf.sh
 ├── index.html
 ├── styles.css
@@ -194,7 +265,14 @@ VibeResume
 
 浏览器打印通常会从 `screen` 媒体切换到 `print` 媒体，触发不同的纸张大小、分页、边距、缩放、字体渲染和 `@media print` 规则，所以导出的 PDF 经常和网页预览不一致。
 
-VibeResume 的导出脚本会打开 `index.html`，强制使用 `screen` 布局，隐藏工具栏，测量 `.page` 元素高度，并按网页实际宽高生成单页 PDF。这样 PDF 更接近你在网页里看到的样子。
+VibeResume 的导出脚本会打开所选模板 HTML，强制使用 `screen` 布局，隐藏工具栏；一页模板会测量 `.page` 的实际高度，分页模板会识别 `.resume-page` 并保持显式分页。这样生成的 PDF 才能稳定复现网页布局。
+
+因此请严格区分：
+
+- 浏览器：只用于查看和调试网页效果。
+- `npm run export:pdf` / `npm run export:pdf:dense-two-page` / `./export-pdf.sh`：用于生成最终交付 PDF。
+
+无论是一页还是两页模板，正式 PDF 都必须走项目官方导出脚本。
 
 ## 致谢
 
@@ -208,23 +286,27 @@ VibeResume 的灵感来源之一，是与 [he11x / kexin](https://github.com/he1
 
 ## English
 
-VibeResume is a vibe-coding friendly web-to-PDF resume template. The webpage is the source of truth: ask an AI coding assistant to edit `index.html` and `styles.css`, preview the result in a browser, then export the same screen layout to a one-page PDF.
+VibeResume is a vibe-coding friendly web-to-PDF resume template repository. It includes a standard one-page template and a dense technical template that supports one or two pages.
 
 ### Highlights
 
 - **AI-editable resume**: describe what you want, and let an AI agent update the HTML/CSS resume directly.
 - **Web-first source**: content, layout, links, icons, and styling are all version-controlled as static files.
-- **Stable PDF export**: Chromium renders the screen layout and exports a measured one-page PDF.
+- **Stable PDF export**: Chromium renders the screen layout and exports either a measured continuous page or explicit `.resume-page` pages.
+- **One-page and two-page layouts**: use the root template for a standard one-page resume, or `templates/dense-two-page/` for a dense technical resume.
 - **Print mismatch avoidance**: no manual browser print workflow, no unexpected print-media pagination.
 - **Codex-style skill included**: `skills/vibe-resume-editor/SKILL.md` gives agents project-specific editing and validation rules.
 - **Open-source ready**: MIT license, badges, preview screenshot, sample PDF, export script, and mock demo content.
 
 ### Quick Start
 
+> **Important:** Use the browser only to preview the HTML. Never deliver a PDF produced by browser Print / Save as PDF. Generate the final PDF with the repository's official export scripts.
+
 ```bash
 npm install
 npm run preview
 npm run export:pdf
+npm run export:pdf:dense-two-page
 ```
 
 Default PDF output:
@@ -243,7 +325,7 @@ export/vibe-resume-demo.pdf
 
 ### Demo Notice
 
-The resume content in this repository is mock data. The avatar is AI-generated. Huawei and Bilibili are retained as easter-egg company-name placeholders and are explicitly marked as demo-only in the resume. The internship details do not describe real work experience. MiniCode is kept as a real open-source easter egg and can be replaced.
+The resume content in this repository is mock data. The avatar is AI-generated. The root one-page demo retains Huawei and Bilibili as demo-only placeholders; the dense two-page demo uses ByteDance, Kuaishou, Meituan, and Bilibili, each explicitly labeled `Mock 模拟经历`. None of the internship details describe real work experience. MiniCode is kept as a real open-source easter egg and can be replaced.
 
 ### Related Projects
 
