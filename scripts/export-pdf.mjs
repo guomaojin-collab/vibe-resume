@@ -1,8 +1,11 @@
 import { chromium } from "playwright-core";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile, unlink } from "node:fs/promises";
 import { existsSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+
+import { assertPdfContainsRenderedText } from "./pdf-text-check.mjs";
+import { createBrowserLaunchError } from "./export-errors.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
@@ -61,10 +64,15 @@ if (!executablePath) {
 
 await mkdir(path.dirname(outputPdf), { recursive: true });
 
-const browser = await chromium.launch({
-  executablePath,
-  headless: true
-});
+let browser;
+try {
+  browser = await chromium.launch({
+    executablePath,
+    headless: true
+  });
+} catch (error) {
+  throw createBrowserLaunchError(error, executablePath);
+}
 
 try {
   const page = await browser.newPage({
@@ -78,6 +86,10 @@ try {
   await page.emulateMedia({ media: "screen" });
   await page.goto(pathToFileURL(inputHtml).href, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts?.ready);
+
+  const expectedTextLength = await page.evaluate(() =>
+    (document.body.innerText || "").replace(/\s+/g, "").length
+  );
 
   const requestedExportWidth = await page.evaluate(() =>
     Number.parseFloat(document.documentElement.dataset.exportWidth || document.body.dataset.exportWidth)
@@ -216,6 +228,14 @@ try {
     printBackground: true,
     scale: 1
   });
+
+  try {
+    const pdfBuffer = await readFile(outputPdf);
+    assertPdfContainsRenderedText(pdfBuffer, expectedTextLength);
+  } catch (error) {
+    await unlink(outputPdf).catch(() => {});
+    throw error;
+  }
 
   console.log(`PDF exported: ${path.relative(repoRoot, outputPdf)}`);
   console.log(`Input HTML: ${path.relative(repoRoot, inputHtml)}`);
