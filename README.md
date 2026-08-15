@@ -126,6 +126,28 @@ export/vibe-resume-dense-two-page-demo.pdf
 CHROME_PATH=/path/to/chrome ./export-pdf.sh
 ```
 
+优先使用与当前 `playwright-core` 版本匹配的 Playwright Chromium。系统 Chrome
+可能比项目依赖更新得更快；版本不兼容时，Chromium 偶尔会生成只有背景、边框和图片，
+但没有正文文字的 PDF。导出器会检查生成文件的 PDF 文本绘制指令，发现这种情况时删除
+无效文件并返回错误，而不是打印成功信息。
+
+如果显式设置 `CHROME_PATH` 后出现文字层校验错误，请先取消该变量，让导出器自动选择
+Playwright 缓存中的 Chromium：
+
+```bash
+unset CHROME_PATH
+./export-pdf.sh export/my-resume.pdf
+```
+
+也可以把 `CHROME_PATH` 指向与项目 Playwright 版本匹配的 Chromium 可执行文件。文件名
+建议避免 `*` 等 shell 特殊字符，即使路径已经放在引号中。
+
+在 Codex、CI、容器或其他受限环境中，Chromium 也可能因沙箱策略无法启动，
+并出现 `Permission denied`、`MachPortRendezvousServer` 或浏览器启动后立即关闭。
+导出器会把这些底层日志转换成可操作的提示。此时请在本机终端执行
+`./export-pdf.sh`，或为执行环境开放启动无头浏览器所需的权限；设置
+`CHROME_PATH` 只能选择浏览器，不能绕过系统沙箱。
+
 ## 像 Vibe Coding 一样编辑简历
 
 推荐工作流：
