@@ -18,25 +18,51 @@ const inputHtml = inputArg
 const outputPdf = path.resolve(repoRoot, outputArg || "export/vibe-resume-demo.pdf");
 const defaultExportWidth = 1080;
 
-function findPlaywrightHeadlessShell() {
-  const cacheRoot = path.join(process.env.HOME || "", "Library", "Caches", "ms-playwright");
-  if (!existsSync(cacheRoot)) return undefined;
+function playwrightCacheRoots() {
+  const xdgCache = process.env.XDG_CACHE_HOME || path.join(process.env.HOME || "", ".cache");
+  const roots = [
+    process.env.PLAYWRIGHT_BROWSERS_PATH,
+    path.join(process.env.HOME || "", "Library", "Caches", "ms-playwright"),
+    path.join(xdgCache, "ms-playwright")
+  ];
+  return [...new Set(roots.filter(Boolean))].filter((root) => existsSync(root));
+}
 
-  const versions = readdirSync(cacheRoot)
-    .filter((name) => name.startsWith("chromium_headless_shell-"))
-    .sort()
-    .reverse();
+function findInPlaywrightCache(prefix, relativePaths) {
+  for (const cacheRoot of playwrightCacheRoots()) {
+    const versions = readdirSync(cacheRoot)
+      .filter((name) => name.startsWith(prefix))
+      .sort()
+      .reverse();
 
-  for (const version of versions) {
-    const candidate = path.join(
-      cacheRoot,
-      version,
-      "chrome-headless-shell-mac-arm64",
-      "chrome-headless-shell"
-    );
-    if (existsSync(candidate)) return candidate;
+    for (const version of versions) {
+      for (const segments of relativePaths) {
+        const candidate = path.join(cacheRoot, version, ...segments);
+        if (existsSync(candidate)) return candidate;
+      }
+    }
   }
   return undefined;
+}
+
+function findPlaywrightHeadlessShell() {
+  const relativePaths =
+    process.platform === "darwin"
+      ? [
+          ["chrome-headless-shell-mac-arm64", "chrome-headless-shell"],
+          ["chrome-headless-shell-mac-x64", "chrome-headless-shell"]
+        ]
+      : [["chrome-linux", "headless_shell"]];
+
+  return findInPlaywrightCache("chromium_headless_shell-", relativePaths);
+}
+
+function findPlaywrightChromium() {
+  if (process.platform !== "linux") return undefined;
+  return findInPlaywrightCache("chromium-", [
+    ["chrome-linux64", "chrome"],
+    ["chrome-linux", "chrome"]
+  ]);
 }
 
 const chromeCandidates = [
@@ -44,10 +70,10 @@ const chromeCandidates = [
   process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH,
   findPlaywrightHeadlessShell(),
   chromium.executablePath(),
+  findPlaywrightChromium(),
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
   "/Applications/Chromium.app/Contents/MacOS/Chromium",
   "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
-  "/home/lmx/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome",
   "/usr/bin/chromium",
   "/usr/bin/chromium-browser",
   "/usr/bin/google-chrome",
