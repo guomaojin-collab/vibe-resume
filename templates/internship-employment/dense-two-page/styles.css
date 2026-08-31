@@ -16,7 +16,7 @@
   font-family: "EB Garamond Local";
   font-style: normal;
   font-weight: 400;
-  src: url("../../assets/fonts/eb-garamond-regular.woff2") format("woff2");
+  src: url("../../../assets/fonts/eb-garamond-regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -24,7 +24,7 @@
   font-family: "EB Garamond Local";
   font-style: normal;
   font-weight: 600;
-  src: url("../../assets/fonts/eb-garamond-semibold.woff2") format("woff2");
+  src: url("../../../assets/fonts/eb-garamond-semibold.woff2") format("woff2");
 }
 
 @font-face {
@@ -32,7 +32,7 @@
   font-family: "EB Garamond Local";
   font-style: normal;
   font-weight: 700;
-  src: url("../../assets/fonts/eb-garamond-bold.woff2") format("woff2");
+  src: url("../../../assets/fonts/eb-garamond-bold.woff2") format("woff2");
 }
 
 * {

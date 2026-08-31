@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>科研申请简历 · Classic 学术风模板</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <svg aria-hidden="true" class="icon-sprite" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="icon-edu" viewBox="0 0 24 24">
+        <path d="M22 10 12 5 2 10l10 5 10-5z"/>
+        <path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5M22 10v6"/>
+      </symbol>
+      <symbol id="icon-flask" viewBox="0 0 24 24">
+        <path d="M10 2v7.5a2 2 0 0 1-.2.9L4.7 20.5a1 1 0 0 0 .9 1.5h12.8a1 1 0 0 0 .9-1.5L14.2 10.4a2 2 0 0 1-.2-.9V2"/>
+        <path d="M8.5 2h7M7 16h10"/>
+      </symbol>
+      <symbol id="icon-pub" viewBox="0 0 24 24">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <path d="M14 2v6h6M8 13h8M8 17h6"/>
+      </symbol>
+      <symbol id="icon-service" viewBox="0 0 24 24">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+      </symbol>
+      <symbol id="icon-award" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="6"/>
+        <path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/>
+      </symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+      </symbol>
+      <symbol id="icon-tool" viewBox="0 0 24 24">
+        <path d="M14.7 6.3a4 4 0 0 0 5 5L11 20l-5-5 8.7-8.7z"/>
+        <path d="m7 17-3 3"/>
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.89.66 2.78a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.3-1.22a2 2 0 0 1 2.11-.45c.89.31 1.82.53 2.78.66A2 2 0 0 1 22 16.92z"/>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
+        <path d="m22 6-10 7L2 6"/>
+      </symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/>
+      </symbol>
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-.94-2.64c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.4 3.4 0 0 0 9 18.11V22"/>
+      </symbol>
+    </svg>
+
+    <!--
+      本模板所有内容均为演示用 mock 数据（人名、学校、论文、奖项均为虚构示例），
+      使用时请整体替换为真实经历，不要保留任何示例条目。
+    -->
+    <div class="toolbar" aria-label="简历操作">
+      <button type="button" class="print-button" onclick="window.print()">打印 / 导出 PDF</button>
+    </div>
+
+    <main class="page" aria-label="科研申请简历模板（示例内容）">
+      <header class="resume-header">
+        <div class="header-main">
+          <p class="affiliation-line">
+            <img class="school-emblem" src="../../../assets/logos/seu-emblem.svg" alt="东南大学校徽" />
+            <span>东南大学 · 计算机科学与技术学院</span>
+          </p>
+          <h1>林望舒</h1>
+          <p class="identity-line">2022 级本科生 · 申请 2026 级博士研究生 · 高性能计算实验室</p>
+          <p class="interest-line"><strong>研究兴趣：</strong>机器学习系统 / 大模型推理优化 / 高效深度学习编译</p>
+          <p class="contact-line">
+            <span><svg class="icon"><use href="#icon-phone"></use></svg>138 0000 0000</span>
+            <span><svg class="icon"><use href="#icon-mail"></use></svg>wangshu.lin@example.com</span>
+            <span><svg class="icon"><use href="#icon-globe"></use></svg>wangshu.example.com</span>
+            <span><svg class="icon"><use href="#icon-github"></use></svg>github.com/example</span>
+          </p>
+        </div>
+        <div class="profile-stamp" aria-label="科研简历标识">
+          <span>RESEARCH CV</span>
+          <strong>Systems × AI</strong>
+          <small>PhD Application</small>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2><svg class="section-icon"><use href="#icon-edu"></use></svg>教育背景</h2>
+        <div class="education-list">
+        <article class="entry">
+          <div class="entry-head">
+            <strong>东南大学 · 计算机科学与技术 · 工学学士</strong>
+            <span class="entry-meta">2022.09 - 2026.06（预计）</span>
+          </div>
+          <ul class="compact-list">
+            <li><strong>成绩排名：</strong><span class="metric">GPA 3.87 / 4.0，专业排名 2 / 186</span>；核心课程：机器学习、计算机体系结构、操作系统、编译原理、概率论与数理统计。</li>
+            <li><strong>外语水平：</strong><span class="metric">CET-6 601，TOEFL 105</span>（Speaking 23）；能够熟练阅读英文文献并撰写英文论文。</li>
+          </ul>
+        </article>
+        <article class="entry">
+          <div class="entry-head">
+            <strong>南山大学 · 计算机科学 · 学期交换</strong>
+            <span class="entry-meta">2025.02 - 2025.06</span>
+          </div>
+          <ul class="compact-list">
+            <li>修读《高级机器学习》《分布式系统》并均获 A；参与系里公开组会与论文研读讨论。</li>
+          </ul>
+        </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2><svg class="section-icon"><use href="#icon-flask"></use></svg>科研经历</h2>
+        <article class="entry featured-entry">
+          <div class="entry-head">
+            <strong>面向长上下文推理的 KV 缓存压缩 · 校级科研训练项目（SRTP）核心成员</strong>
+            <span class="entry-meta">2024.09 至今</span>
+          </div>
+          <p class="entry-note">指导教师：周砚秋 教授 · 高性能计算实验室</p>
+          <div class="evidence-strip" aria-label="代表性研究成果">
+            <span><strong>41%</strong><small>显存峰值降低</small></span>
+            <span><strong>128K</strong><small>单卡稳定上下文</small></span>
+            <span><strong>12</strong><small>评测数据集</small></span>
+            <span class="evidence-status">MLSys 2026 Workshop<br />Under Review</span>
+          </div>
+          <ul>
+            <li><strong>问题与动机：</strong>针对长上下文场景下 KV 缓存显存占用随序列长度增长的问题，调研 PagedAttention、量化与稀疏化三条技术路线并形成综述报告。</li>
+            <li><strong>方法与实现：</strong>在 vLLM 推理框架上实现分块 KV 缓存与按需淘汰策略，结合 token 重要性评分将<span class="metric">显存峰值降低 41%</span>，支撑 128K 上下文在单卡 A100 上的稳定推理。</li>
+            <li><strong>实验与验证：</strong>设计覆盖 12 个数据集、3 类负载的评测流水线，与 5 个基线方法对比吞吐与精度损失，已投稿 MLSys 2026 Workshop（在审）。</li>
+          </ul>
+        </article>
+        <article class="entry">
+          <div class="entry-head">
+            <strong>大规模分布式训练加速 · 云启科技 AI 平台部 科研实习</strong>
+            <span class="entry-meta">2025.06 - 2025.09</span>
+          </div>
+          <ul>
+            <li><strong>个人工作：</strong>参与千卡集群训练任务的性能剖析，定位通信与计算重叠不足的瓶颈，重构梯度同步路径并实现分桶重叠调度。</li>
+            <li><strong>量化结果：</strong>在 512 卡 BERT-Large 预训练任务上将<span class="metric">端到端吞吐提升 18%</span>，相关优化合入内部训练框架并沉淀 2 篇技术文档。</li>
+            <li><strong>协作方式：</strong>与 SRE 团队共建故障注入与容错测试集，完成 3 轮集群级演练报告，训练中断恢复时间从分钟级降至秒级。</li>
+            <li><strong>技术沉淀：</strong>调研通信量化与稀疏梯度在混合精度训练中的适用边界，输出内部技术评审报告并被采纳为后续迭代方向。</li>
+          </ul>
+        </article>
+        <article class="entry">
+          <div class="entry-head">
+            <strong>轻量级推理引擎内核优化 · 课程综合设计（评分 A+，全班前 3%）</strong>
+            <span class="entry-meta">2024.03 - 2024.06</span>
+          </div>
+          <ul>
+            <li>基于 C++ / CUDA 实现算子融合与 Winograd 卷积优化，在 ImageNet 子集上将 ResNet-50 <span class="metric">推理延迟降低 27%</span>。</li>
+            <li>编写完整的基准测试与数值一致性校验脚本，代码以开源形式整理并附实验复现说明。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2><svg class="section-icon"><use href="#icon-pub"></use></svg>论文与成果</h2>
+        <ol class="pub-list">
+          <li><strong>Wangshu Lin</strong>, Yanqiu Zhou, et al. "<strong>Block-wise KV Cache Compression for Long-context LLM Inference</strong>." <em>MLSys 2026 Workshop</em> <span class="pub-status">在审</span>.</li>
+          <li><strong>林望舒</strong>, 陈叙白. <strong>《面向千卡集群的梯度同步分桶重叠调度方法》</strong>. 《东南大学学报（自然科学版）》<span class="pub-status">已录用</span>.</li>
+          <li><strong>Wangshu Lin</strong>, Xubai Chen. "<strong>Measuring Communication-Computation Overlap in Large-scale Training</strong>." 第一届学生系统研讨会海报（2025）.</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2><svg class="section-icon"><use href="#icon-service"></use></svg>开源与学术服务</h2>
+        <article class="entry">
+          <div class="entry-head">
+            <strong>TorchKV · 开源 KV 缓存压缩工具库</strong>
+            <span class="entry-meta">2024.12 至今</span>
+          </div>
+          <ul>
+            <li>发起并维护（github.com/example/torchkv，<span class="metric">950+ star</span>），提供多种缓存淘汰与量化策略的可插拔实现，附完整文档与复现实验。</li>
+          </ul>
+        </article>
+        <article class="entry">
+          <div class="entry-head">
+            <strong>《计算机体系结构》课程助教 · 东南大学</strong>
+            <span class="entry-meta">2025 秋季学期</span>
+          </div>
+          <ul>
+            <li>负责实验课答疑与 RISC-V 流水线作业批改，整理 3 份被后续学期沿用的实验讲义。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2><svg class="section-icon"><use href="#icon-award"></use></svg>荣誉与奖项</h2>
+        <ul class="compact-list two-col">
+          <li><strong>国家奖学金</strong>（2024，全院 2 人）</li>
+          <li><strong>全国大学生数学建模竞赛一等奖</strong>（2024）</li>
+          <li><strong>校一等奖学金</strong> × 2（2023、2025）</li>
+          <li><strong>校"优秀学生标兵"</strong>（2025）</li>
+          <li><strong>全国大学生系统与体系结构竞赛二等奖</strong>（2025）</li>
+          <li><strong>东南大学"十佳本科生科研团队"</strong>成员（2025）</li>
+        </ul>
+      </section>
+
+      <section class="section research-agenda">
+        <h2><svg class="section-icon"><use href="#icon-target"></use></svg>未来研究设想</h2>
+        <ul class="compact-list">
+          <li><strong>近期：</strong>将 KV 缓存压缩工作扩展到投机解码与多模态推理场景，系统刻画压缩率、精度与吞吐的权衡面，形成完整的方法体系。</li>
+          <li><strong>长期：</strong>关注推理服务与编译协同优化的系统栈，希望参与从算子、运行时到集群调度的一体化高效推理研究。</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2><svg class="section-icon"><use href="#icon-tool"></use></svg>专业技能</h2>
+        <ul class="compact-list">
+          <li><strong>系统与并行：</strong>熟练使用 C++ / CUDA / Python / Rust，了解 Triton；熟悉 PyTorch、分布式训练（DDP/TP/PP）与 vLLM 推理栈。</li>
+          <li><strong>工程与研究工具：</strong>熟悉 Linux 开发环境、Slurm 集群调度、Git 协作与实验管理；能独立完成文献调研、实验设计、论文写作与复现包整理。</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

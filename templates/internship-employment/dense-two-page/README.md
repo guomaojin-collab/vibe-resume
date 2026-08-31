@@ -24,7 +24,7 @@ export/vibe-resume-dense-two-page-demo.pdf
 也可以直接使用通用导出脚本：
 
 ```bash
-./export-pdf.sh export/my-resume.pdf templates/dense-two-page/index.html
+./export-pdf.sh export/my-resume.pdf templates/internship-employment/dense-two-page/index.html
 ```
 
 ## 一页 / 两页兼容

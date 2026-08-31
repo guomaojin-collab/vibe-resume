@@ -1,0 +1,459 @@
+:root {
+  --screen-width: 1080px;
+  --ink: #1a1a1a;
+  --muted: #5f6b76;
+  --hairline: #c9cfd6;
+  --accent: #1e3a5f;
+  --accent-soft: #eef3fa;
+  --accent-warm: #a6622b;
+  --warm-soft: #fbf4ec;
+  --panel: #f7f9fc;
+  --screen-bg: #f2f3f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--screen-bg);
+  color: var(--ink);
+  font-family: "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.icon-sprite {
+  display: none;
+}
+
+.icon,
+.section-icon {
+  display: inline-block;
+  fill: none;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.icon {
+  height: 13px;
+  width: 13px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+  padding: 18px;
+}
+
+.toolbar .print-button {
+  background: var(--accent);
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 9px 18px;
+}
+
+.page {
+  background: #fff;
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.14);
+  margin: 0 auto 32px;
+  min-height: 1380px;
+  overflow: visible;
+  padding: 44px 58px 42px;
+  width: min(calc(100vw - 48px), var(--screen-width));
+}
+
+.resume-header {
+  align-items: center;
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+}
+
+.affiliation-line {
+  align-items: center;
+  display: flex;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.school-emblem {
+  flex: 0 0 auto;
+  height: 30px;
+  margin-right: 10px;
+  width: 32px;
+}
+
+.header-main {
+  min-width: 0;
+}
+
+.resume-header h1 {
+  color: var(--accent);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.15;
+  margin: 5px 0 7px;
+}
+
+.identity-line {
+  color: var(--ink);
+  font-size: 15.5px;
+  margin: 0 0 4px;
+}
+
+.interest-line {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.contact-line {
+  color: var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13.5px;
+  gap: 5px 15px;
+  margin: 0;
+}
+
+.contact-line span {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  display: inline-flex;
+  gap: 7px;
+  padding: 0;
+}
+
+.contact-line .icon {
+  color: var(--accent);
+}
+
+.profile-stamp {
+  border-left: 1px solid var(--hairline);
+  color: var(--accent);
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 74px;
+  padding-left: 20px;
+  text-align: right;
+  width: 154px;
+}
+
+.profile-stamp span {
+  color: var(--accent-warm);
+  font-family: Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.profile-stamp strong {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.profile-stamp small {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+
+.section {
+  margin-top: 16px;
+}
+
+.section:first-of-type {
+  margin-top: 0;
+}
+
+.section h2 {
+  align-items: center;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--accent);
+  display: flex;
+  font-size: 19px;
+  font-weight: 700;
+  gap: 8px;
+  letter-spacing: 1.4px;
+  line-height: 1.3;
+  margin: 0 0 7px;
+  padding-bottom: 4px;
+  position: relative;
+}
+
+.section h2::after {
+  background: var(--accent-warm);
+  bottom: -1px;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 36px;
+}
+
+.section-icon {
+  background: transparent;
+  border-radius: 0;
+  color: var(--accent);
+  height: 20px;
+  padding: 0;
+  width: 20px;
+}
+
+.education-list {
+  border-left: 2px solid var(--accent-soft);
+  padding-left: 16px;
+}
+
+.metric {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.entry {
+  margin-top: 12px;
+}
+
+.entry:first-of-type {
+  margin-top: 0;
+}
+
+.entry-head {
+  align-items: baseline;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  line-height: 1.4;
+}
+
+.entry-head strong {
+  font-size: 15.5px;
+  font-weight: 700;
+}
+
+.entry-meta {
+  color: var(--muted);
+  flex: 0 0 auto;
+  font-size: 13.5px;
+}
+
+.entry-note {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin: 3px 0 0;
+}
+
+.featured-entry {
+  background: linear-gradient(90deg, var(--accent-soft), #fff 70%);
+  border-left: 3px solid var(--accent);
+  margin-top: 8px;
+  padding: 10px 14px 11px;
+}
+
+.featured-entry .entry-head strong {
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.evidence-strip {
+  align-items: stretch;
+  border-bottom: 1px solid #d4dfea;
+  border-top: 1px solid #d4dfea;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 1.45fr;
+  margin: 8px 0 7px;
+}
+
+.evidence-strip > span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 43px;
+  padding: 5px 10px;
+}
+
+.evidence-strip > span + span {
+  border-left: 1px solid #d4dfea;
+}
+
+.evidence-strip strong {
+  color: var(--accent);
+  font-family: Georgia, serif;
+  font-size: 19px;
+  line-height: 1;
+}
+
+.evidence-strip small {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.25;
+  margin-top: 3px;
+}
+
+.evidence-strip .evidence-status {
+  color: var(--accent-warm);
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+}
+
+.entry ul,
+.compact-list {
+  font-size: 15px;
+  list-style: none;
+  margin: 5px 0 0;
+  padding: 0;
+}
+
+.entry li,
+.compact-list li {
+  margin-top: 4px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.entry li::before,
+.compact-list li::before {
+  color: var(--muted);
+  content: "·";
+  font-weight: 700;
+  left: 3px;
+  position: absolute;
+  top: 0;
+}
+
+.entry li strong,
+.compact-list li strong {
+  font-weight: 700;
+}
+
+.two-col {
+  column-gap: 32px;
+  columns: 2;
+}
+
+.two-col li {
+  break-inside: avoid;
+}
+
+.pub-list {
+  font-size: 15px;
+  margin: 5px 0 0;
+  padding-left: 22px;
+}
+
+.pub-list li {
+  margin-top: 3px;
+  padding-left: 4px;
+}
+
+.pub-list li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.pub-status {
+  border: 1px solid #d9b697;
+  color: var(--accent-warm);
+  font-family: "Noto Sans CJK SC", "PingFang SC", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 4px;
+  padding: 1px 5px;
+}
+
+.research-agenda {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.research-agenda .section-icon {
+  color: var(--accent-warm);
+}
+
+@media (max-width: 880px) {
+  .page {
+    padding: 28px 22px;
+    width: 100vw;
+  }
+
+  .resume-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .school-emblem {
+    height: 26px;
+    width: 26px;
+  }
+
+  .profile-stamp {
+    border-left: 0;
+    border-top: 1px solid var(--hairline);
+    min-height: 0;
+    padding: 10px 0 0;
+    text-align: left;
+    width: 100%;
+  }
+
+  .two-col {
+    columns: 1;
+  }
+
+  .evidence-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .evidence-strip > span:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid #d4dfea;
+  }
+
+  .evidence-strip .evidence-status {
+    border-top: 1px solid #d4dfea;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .toolbar {
+    display: none;
+  }
+
+  .page {
+    box-shadow: none;
+    margin: 0;
+    width: var(--screen-width);
+  }
+}

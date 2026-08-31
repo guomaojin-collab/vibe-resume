@@ -11,15 +11,18 @@ Use this skill to help a user maintain a resume in the VibeResume templates. The
 
 Template sources:
 
-- Default one-page template: `index.html` + `styles.css`
-- Dense one/two-page technical template: `templates/dense-two-page/index.html` + `templates/dense-two-page/styles.css`
+- Standard one-page template: `templates/internship-employment/standard-one-page/index.html` + `styles.css`
+- Dense one/two-page technical template: `templates/internship-employment/dense-two-page/index.html` + `templates/internship-employment/dense-two-page/styles.css`
+- Research application template: `templates/research-application/research-classic/index.html` + `templates/research-application/research-classic/styles.css`
 
 ## Core Rules
 
 - Keep the resume credible and specific. Do not invent degrees, employers, dates, awards, metrics, or project claims when editing a real resume.
-- Use the root one-page template by default when the user does not specify length.
-- When the user explicitly asks for two pages, a dense resume, or has substantial technical experience that clearly needs two pages, default to `templates/dense-two-page/`.
+- Use `templates/internship-employment/standard-one-page/` by default when the user does not specify length.
+- When the user explicitly asks for two pages, a dense resume, or has substantial technical experience that clearly needs two pages, default to `templates/internship-employment/dense-two-page/`.
+- When the user is applying for a PhD, research internship, research assistant role, or needs to foreground publications and a representative research contribution, use `templates/research-application/research-classic/`.
 - The dense template is backward compatible: keep one `.resume-page` for a one-page version, or two `.resume-page` elements for a two-page version.
+- The research template intentionally exports as a continuous long page. Do not force it into A4 unless the user explicitly requires A4.
 - Prefer concise, formal resume wording with strong verbs, concrete scope, and measurable outcomes.
 - Keep the selected template's semantic HTML structure unless a section truly needs to be added or removed.
 - Keep visual edits scoped to `styles.css`, and preserve the screen-to-PDF export mechanism.
@@ -48,7 +51,7 @@ For personal-resume mode:
 
 1. Inspect `README.md`, `scripts/export-pdf.mjs`, and the HTML/CSS pair for the selected template.
 2. Identify whether the task is demo/template maintenance or a real personal resume.
-3. Select the root one-page template or `templates/dense-two-page/` using the rules above.
+3. Select `templates/internship-employment/standard-one-page/`, `templates/internship-employment/dense-two-page/`, or `templates/research-application/research-classic/` using the rules above.
 4. Update resume content in the selected HTML file.
 5. Adjust spacing, width, typography, density, and page balance in the selected CSS file only when needed.
 6. For company logos, ask the user to manually download the intended SVG from `https://www.iconfont.cn/` (or an official brand library) and attach it; then copy it into `assets/logos/`. For AI/model/provider marks, follow `https://lobehub.com/icons/skill.md`: inspect `toc`, select a supported variant, use `getLobeIconCDN`, and store it locally. Do not guess slugs or substitute a product logo for a company logo without explicit user approval.
@@ -61,7 +64,7 @@ For personal-resume mode:
 ### Required export path
 
 - The browser is for HTML preview only. Do not use the browser's Print / Save as PDF output as the deliverable PDF.
-- Always generate the final PDF through the repository's official exporter: `npm run export:pdf`, `npm run export:pdf:dense-two-page`, or `./export-pdf.sh <output> <input-html>`.
+- Always generate the final PDF through the repository's official exporter: `npm run export:pdf`, `npm run export:pdf:dense-two-page`, `npm run export:pdf:research-classic`, or `./export-pdf.sh <output> <input-html>`.
 - If a user clicks the in-page print button, treat that result as a preview diagnostic only and regenerate the deliverable with the official script.
 
 Use:
@@ -77,6 +80,12 @@ For the dense two-page template:
 npm run export:pdf:dense-two-page
 ```
 
+For the research application template:
+
+```bash
+npm run export:pdf:research-classic
+```
+
 Then check:
 
 ```bash
@@ -86,8 +95,8 @@ pdftotext export/vibe-resume-demo.pdf -
 
 Validation expectations:
 
-- `pdfinfo` reports the requested page count: one page for the root template, one or two pages for the dense template.
-- The PDF text includes profile, education, internships, projects, and skills.
+- `pdfinfo` reports the requested page count: one page for the root and research templates, one or two pages for the dense template.
+- The PDF text includes profile, education, internships or research work, projects or publications, and skills.
 - No important section is clipped or missing.
 - For two pages, both pages have intentional section boundaries and balanced bottom whitespace; a project or role must not be accidentally split across pages.
 - The generated PDF visually matches the browser page closely because the exporter uses Chromium screen layout.

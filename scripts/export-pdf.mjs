@@ -14,7 +14,7 @@ const outputArg = process.argv[2];
 const inputArg = process.argv[3] || process.env.RESUME_HTML;
 const inputHtml = inputArg
   ? path.resolve(repoRoot, inputArg)
-  : path.join(repoRoot, "index.html");
+  : path.join(repoRoot, "templates", "internship-employment", "standard-one-page", "index.html");
 const outputPdf = path.resolve(repoRoot, outputArg || "export/vibe-resume-demo.pdf");
 const defaultExportWidth = 1080;
 

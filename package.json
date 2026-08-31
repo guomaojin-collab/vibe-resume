@@ -28,8 +28,10 @@
     "preview": "python3 -m http.server 4173",
     "test": "node --test",
     "sync:logos": "node scripts/sync-lobe-icons.mjs",
-    "export:pdf": "node scripts/export-pdf.mjs",
-    "export:pdf:dense-two-page": "node scripts/export-pdf.mjs export/vibe-resume-dense-two-page-demo.pdf templates/dense-two-page/index.html"
+    "export:pdf": "node scripts/export-pdf.mjs export/vibe-resume-demo.pdf templates/internship-employment/standard-one-page/index.html",
+    "export:pdf:internship-standard": "node scripts/export-pdf.mjs export/vibe-resume-demo.pdf templates/internship-employment/standard-one-page/index.html",
+    "export:pdf:dense-two-page": "node scripts/export-pdf.mjs export/vibe-resume-dense-two-page-demo.pdf templates/internship-employment/dense-two-page/index.html",
+    "export:pdf:research-classic": "node scripts/export-pdf.mjs export/vibe-resume-research-classic-demo.pdf templates/research-application/research-classic/index.html"
   },
   "engines": {
     "node": ">=18"

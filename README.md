@@ -14,13 +14,13 @@ VibeResume 是一个 **AI 友好、网页优先、可导出 PDF 的简历模板�
 [English](#english)
 
 <p align="center">
-  <img src="assets/preview.png" alt="VibeResume 标准单页模板预览" width="31%" />
-  <img src="templates/dense-two-page/preview-page-1.png" alt="VibeResume 高密度双页模板第 1 页预览" width="31%" />
-  <img src="templates/dense-two-page/preview-page-2.png" alt="VibeResume 高密度双页模板第 2 页预览" width="31%" />
+  <img src="templates/internship-employment/standard-one-page/preview.png" alt="VibeResume 实习就业标准单页模板预览" width="31%" />
+  <img src="templates/internship-employment/dense-two-page/preview-page-1.png" alt="VibeResume 实习就业高密度双页模板预览" width="31%" />
+  <img src="templates/research-application/research-classic/preview.png" alt="VibeResume 科研申请模板预览" width="31%" />
 </p>
 
-- 示例网页：打开 `index.html`
-- 示例 PDF：[标准单页](export/vibe-resume-demo.pdf) · [高密度双页](export/vibe-resume-dense-two-page-demo.pdf)
+- 示例网页：打开根目录 `index.html`，或进入下方模板目录
+- 示例 PDF：[实习就业标准单页](export/vibe-resume-demo.pdf) · [实习就业高密度双页](export/vibe-resume-dense-two-page-demo.pdf) · [科研申请](export/vibe-resume-research-classic-demo.pdf)
 - AI 使用说明：[skills/vibe-resume-editor/SKILL.md](skills/vibe-resume-editor/SKILL.md)
 
 ## 为什么做这个项目
@@ -38,7 +38,7 @@ VibeResume 的思路是：**把网页作为简历源文件，把 AI 当作编辑
 - **像 vibe coding 一样编辑简历**：直接告诉 AI 目标岗位、修改方向和版式要求，让它修改 `index.html` 与 `styles.css`。
 - **网页即源文件**：简历内容、布局、图标、链接都在静态 HTML/CSS 中维护，天然适合 Git 版本管理。
 - **一键导出 PDF**：使用 Chromium 渲染网页的 `screen` 布局；一页模板动态测量 `.page` 高度，双页模板识别 `.resume-page` 并按页导出。
-- **一页 / 两页模板**：根目录提供标准一页模板，`templates/dense-two-page/` 提供高密度技术简历，可保留一页或扩展为两页。
+- **分类模板**：`templates/internship-employment/` 提供两种实习就业模板，`templates/research-application/` 提供科研申请模板。
 - **避免打印错位**：不依赖手动浏览器打印，不触发不可控的纸张边距、分页、缩放和 `@media print` 差异。
 - **AI 配套 Skill**：仓库内置 `vibe-resume-editor`，可以作为 Codex-style skill 即插即用。
 - **开源项目友好**：包含 README、License、示例 PDF、预览截图、导出脚本、依赖锁定和 mock 示例内容。
@@ -90,6 +90,24 @@ npm run export:pdf:dense-two-page
 export/vibe-resume-dense-two-page-demo.pdf
 ```
 
+导出实习就业标准单页模板（分类目录版本）：
+
+```bash
+npm run export:pdf:internship-standard
+```
+
+导出科研申请模板：
+
+```bash
+npm run export:pdf:research-classic
+```
+
+输出：
+
+```text
+export/vibe-resume-research-classic-demo.pdf
+```
+
 也可以指定输出路径：
 
 ```bash
@@ -99,26 +117,41 @@ export/vibe-resume-dense-two-page-demo.pdf
 通用脚本也可以指定模板 HTML：
 
 ```bash
-./export-pdf.sh export/my-two-page-resume.pdf templates/dense-two-page/index.html
+./export-pdf.sh export/my-two-page-resume.pdf templates/internship-employment/dense-two-page/index.html
 ```
 
 ## 模板选择
 
-### 标准一页模板
+### 实习就业
 
-- 文件：`index.html` + `styles.css`
+#### 标准一页模板
+
+- 文件：`templates/internship-employment/standard-one-page/index.html` + `styles.css`
 - 适合：经历较少、强调快速扫描、默认一页投递的简历。
-- 导出：`npm run export:pdf`
+- [预览](templates/internship-employment/standard-one-page/preview.png) · 导出：`npm run export:pdf:internship-standard`
 
-### Dense Two-Page 高密度技术模板
+根目录 `index.html` + `styles.css` 仍保留为兼容入口；`npm run export:pdf` 与 `npm run export:pdf:internship-standard` 均使用分类目录中的标准单页源文件。
 
-- 文件：`templates/dense-two-page/index.html` + `templates/dense-two-page/styles.css`
+#### Dense Two-Page 高密度技术模板
+
+- 文件：`templates/internship-employment/dense-two-page/index.html` + `templates/internship-employment/dense-two-page/styles.css`
 - 适合：算法、AI Agent、基础设施、研究与开源经历较多的候选人。
 - 风格：白底、高密度正文、蓝色章节标题、细分隔线、浅色 Logo 标题条和详细技术 bullet。
 - 页数：默认示例为两页；删除第二个 `.resume-page` 后，同一导出器会自动生成一页 PDF。
-- 导出：`npm run export:pdf:dense-two-page`
+- [预览](templates/internship-employment/dense-two-page/preview.png) · 导出：`npm run export:pdf:dense-two-page`
 
 当用户明确要求两页简历时，配套 Skill 会默认选择这个模板；未指定页数时仍沿用根目录的一页模板。
+
+### 科研申请
+
+#### Research Classic 科研申请模板
+
+- 文件：`templates/research-application/research-classic/index.html` + `templates/research-application/research-classic/styles.css`
+- 适合：博士申请、科研实习、研究助理与需要突出论文、代表性研究成果的候选人。
+- 风格：连续长页、经典学术排版；代表作通过问题、方法、量化证据和发表状态建立扫读重点。
+- [预览](templates/research-application/research-classic/preview.png) · 导出：`npm run export:pdf:research-classic`
+- 说明：[`templates/research-application/research-classic/README.md`](templates/research-application/research-classic/README.md)
+- 校徽说明：模板中的东南大学（SEU）校徽仅为示例；请自行准备并上传你的学校校徽，或删除该图片元素。
 
 如果脚本找不到浏览器，可以手动指定 Chrome / Chromium：
 
@@ -237,6 +270,8 @@ VibeResume
 - 自己上传 SVG 到 `assets/logos/` 并在 `index.html` 中引用。
 - 让 Agent 按上述官方 Skill 流程在 <https://lobehub.com/icons> 和 `toc` 中确认公司、产品、框架或开源项目图标。
 
+科研申请模板中的东南大学（SEU）校徽仅用于展示图片位置和比例，不代表模板使用者的学校。使用时请自行上传并替换为你的学校校徽，或删除校徽。
+
 当前双页示例中，字节跳动、快手和美团使用用户从 Iconfont 手动下载后提供的 SVG；哔哩哔哩使用 `@lobehub/icons` 的 `Bilibili.Color`。公司栏背景、左侧强调色与 Logo 主色呼应。公司名、Logo 和商标归各自权利方所有。
 
 双页模板的 Logo 应保持透明直贴，不添加白色底座、白边、额外描边或装饰圆角。不要只机械统一 CSS 宽高：应根据 SVG 自带留白逐枚校准，使实际图形的视觉高度约占 44px 公司栏的 75%–80%。当前显示盒约为 35–39px；窄长图形可适度加宽，但不得拉伸或裁切。
@@ -261,7 +296,8 @@ VibeResume
 │   └── preview.png
 ├── export/
 │   ├── vibe-resume-demo.pdf
-│   └── vibe-resume-dense-two-page-demo.pdf
+│   ├── vibe-resume-dense-two-page-demo.pdf
+│   └── vibe-resume-research-classic-demo.pdf
 ├── skills/
 │   └── vibe-resume-editor/
 │       └── SKILL.md
@@ -269,13 +305,12 @@ VibeResume
 │   ├── export-pdf.mjs
 │   └── sync-lobe-icons.mjs
 ├── templates/
-│   └── dense-two-page/
-│       ├── index.html
-│       ├── preview.png
-│       ├── preview-page-1.png
-│       ├── preview-page-2.png
-│       ├── styles.css
-│       └── README.md
+│   ├── internship-employment/
+│   │   ├── standard-one-page/
+│   │   └── dense-two-page/
+│   ├── research-application/
+│   │   └── research-classic/
+│   └── README.md
 ├── export-pdf.sh
 ├── index.html
 ├── styles.css
@@ -292,7 +327,7 @@ VibeResume 的导出脚本会打开所选模板 HTML，强制使用 `screen` 布
 因此请严格区分：
 
 - 浏览器：只用于查看和调试网页效果。
-- `npm run export:pdf` / `npm run export:pdf:dense-two-page` / `./export-pdf.sh`：用于生成最终交付 PDF。
+- `npm run export:pdf` / `npm run export:pdf:internship-standard` / `npm run export:pdf:dense-two-page` / `npm run export:pdf:research-classic` / `./export-pdf.sh`：用于生成最终交付 PDF。
 
 无论是一页还是两页模板，正式 PDF 都必须走项目官方导出脚本。
 
@@ -308,14 +343,14 @@ VibeResume 的灵感来源之一，是与 [he11x / kexin](https://github.com/he1
 
 ## English
 
-VibeResume is a vibe-coding friendly web-to-PDF resume template repository. It includes a standard one-page template and a dense technical template that supports one or two pages.
+VibeResume is a vibe-coding friendly web-to-PDF resume template repository. It includes two internship and employment templates plus a research application template.
 
 ### Highlights
 
 - **AI-editable resume**: describe what you want, and let an AI agent update the HTML/CSS resume directly.
 - **Web-first source**: content, layout, links, icons, and styling are all version-controlled as static files.
 - **Stable PDF export**: Chromium renders the screen layout and exports either a measured continuous page or explicit `.resume-page` pages.
-- **One-page and two-page layouts**: use the root template for a standard one-page resume, or `templates/dense-two-page/` for a dense technical resume.
+- **Template categories**: `templates/internship-employment/` contains standard one-page and dense technical layouts; `templates/research-application/` contains the research application layout.
 - **Print mismatch avoidance**: no manual browser print workflow, no unexpected print-media pagination.
 - **Codex-style skill included**: `skills/vibe-resume-editor/SKILL.md` gives agents project-specific editing and validation rules.
 - **Open-source ready**: MIT license, badges, preview screenshot, sample PDF, export script, and mock demo content.
@@ -328,7 +363,9 @@ VibeResume is a vibe-coding friendly web-to-PDF resume template repository. It i
 npm install
 npm run preview
 npm run export:pdf
+npm run export:pdf:internship-standard
 npm run export:pdf:dense-two-page
+npm run export:pdf:research-classic
 ```
 
 Default PDF output:
